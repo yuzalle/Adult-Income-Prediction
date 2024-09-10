@@ -1,0 +1,89 @@
+Kesimpulan:
+- Setelah dilakukan base model didapatkan bahwa model XGBoost yang terbaik dengan nilai f1 score yang seimbang.
+- XGBoost setelah hyperparameter tuning hanya meningkat 0.003 dari base model
+- Dalam sisi bisnis, model ini dapat digunakan untuk membantu instansi pemerintah yang ingin mengetahui pendapatan masyarakatnya berdasarkan pekerjaan, marital-status, education dan lainnya
+- Namun Model ini memiliki akurasi f1-score yang cukup tinggi pada value dibawah 50k dengan persentase 90% dan untuk value diatas 50k memiliki persentase 70%
+- Model ini perlu dilakukan improvement agar dapat memperbaiki hasil prediksi supaya persentase yang didapatkan tidak terlalu jauh. Dapat dilakukan seperti Teknik resampling, menggunakan model yang lebih kompleks atau feature engineering tambahan
+
+Slide 1:
+Halo, Selamat pagi. Terimakasih atas kesempatan yang diberikan, pada kali ini saya akan mempresentasikan model machine learning saya dengan dataset Adult Income.
+
+Slide 2:
+Berikut merupakan datasets saya dengan kolom target yaitu "income" dan yang lainnya merupakan feature. Dengan baris 48842 dan 15 kolom.
+
+Slide 3:
+-Pada pengecekan data terdapat missing value pada kolom workclass, occupation dan native-country yang kemudian akan dihandle pada Feature Engineering.
+
+-Pada pie chart diketahui bahwa value dibawah 50k lebih banyak dibandingkan diatas 50k dengan perbandingan 76.1% dan 23.9%.
+
+-Pada unique value dari kolom yang memiliki missing value diketahui bahwa ada unique value tambahan yaitu "?" yang kemudian akan dihandle pada Feature Engineering.
+
+Slide 4:
+Berikut Feature Engineeringnya:
+- Pada missing value diliat persentasenya dan diketahui bahwa persentase missing value hanya 2% maka dari itu dilakukan drop values, karena persentase missing value tidak terlalu besar.
+- Pada Unique Value diketahui persentasenya sebagai berikut namun jika dilakukan drop values maka ada nilai unique hilang dalam workclass yaitu "Never-worked". Maka dari itu saya mengubah nilai "?" yang ada pada occupation terhadap "Never-worked" diganti menjadi "Does-not-work". Jadi saya menambahkan unique values hanya untuk workclass "Never-worked" agar unique values tersebut tidak hilang.
+
+Slide 5:
+Berikut uji korelasi antara kategorikal dan numerical:
+Diketahui bahwa semua kolom pada kategorikal memiliki korelasi dengan target. namun, untuk numerical hanya fnlwgt yang tidak memiliki korelasi. maka dari itu semua kolom kecuali fnlwgt digunakan untuk pemodelan.
+
+Slide 6:
+Berikut Kolom yang digunakan untuk model.
+
+Slide 7:
+Untuk handling outliers saya tidak melakukannya.Menurut saya, semua kolom numerical pada dataset saya ingin memiliki pengaruh yang cukup besar.
+
+Slide 8:
+Teks pada slide
+
+Slide 9:
+Jadi pada cross validation ini saya menggunakan score "F1-score"
+
+Slide 10:
+Berikut hasil hyperparameter tuning XGBoost. Slide.
+
+Slide 11:
+Slide.
+
+
+Bahasa Inggris:
+
+Slide 1:
+Hello, good morning. Thank you for the opportunity. Today, I will be presenting my machine learning model using the Adult Income dataset.
+
+Slide 2:
+This is my dataset with the target column being "income" and the others as features. The dataset has 48,842 rows and 15 columns.
+
+Slide 3:
+- In the data check, missing values were found in the workclass, occupation, and native-country columns, which will be handled during Feature Engineering.
+- The pie chart shows that the value below 50k is more prevalent than above 50k, with a ratio of 76.1% to 23.9%.
+- In the unique value analysis of columns with missing values, it was found that there is an additional unique value, "?", which will be handled during Feature Engineering.
+
+Slide 4:
+Here is the Feature Engineering process:
+- For missing values, the percentage was calculated, and it was found that the missing value percentage is only 2%. Therefore, these values were dropped since the percentage is not significant.
+- In the Unique Value analysis, the percentages were determined. However, if values are dropped, the unique value "Never-worked" in workclass will be lost. Therefore, I replaced the "?" in the occupation column with "Does-not-work" for those in the "Never-worked" workclass. This way, I added a unique value only for the "Never-worked" workclass to ensure it is not lost.
+
+Slide 5:
+Here is the correlation test between categorical and numerical features:
+It was found that all categorical columns have a correlation with the target. However, among the numerical features, only fnlwgt does not have a correlation. Therefore, all columns except fnlwgt are used for modeling.
+
+Slide 6:
+These are the columns used for the model.
+
+Slide 7:
+I did not handle outliers. I believe that all numerical columns in my dataset should have a significant impact.
+
+Slide 8:
+Text on the slide.
+
+Slide 9:
+In this cross-validation, I used the "F1-score" metric.
+
+Slide 10:
+Here are the results of XGBoost hyperparameter tuning. Slide.
+
+Slide 11:
+Slide.
+
+Okay, thats'all for my presentation. Thankyou Very Much!
